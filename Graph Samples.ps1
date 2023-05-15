@@ -41,10 +41,14 @@ if ($sitelist) {
         $siteId = $site.id
         $siteName = $site.name
         $siteUrl = $site.webUrl
-        Write-Host "Site ID: $siteId"
-        Write-Host "Site Name: $siteName"
-        Write-Host "Site URL: $siteUrl"
-        Write-Host ""
+
+        # Create a custom object for the SharePoint site
+        [PSCustomObject]@{
+            TypeName = "TKMGSite"
+            SiteName = $siteName
+            SiteUrl = $siteUrl
+            SiteId = $siteId
+        }
     }
 }
 
